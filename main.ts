@@ -29,6 +29,20 @@ function 第七段 () {
     music.playTone(698, music.beat(BeatFraction.Double))
     music.playTone(587, music.beat(BeatFraction.Double))
 }
+input.onSound(DetectedSound.Loud, function () {
+    if (light2 > 130) {
+        第一段()
+        第二段()
+        第一段()
+        第三段()
+        第四段()
+        第五段()
+        第六段()
+        第七段()
+        第八段()
+        第四段()
+    }
+})
 function 第六段 () {
     music.playTone(698, music.beat(BeatFraction.Whole))
     music.playTone(698, music.beat(BeatFraction.Whole))
@@ -117,15 +131,13 @@ function 第一段 () {
     music.rest(music.beat(BeatFraction.Whole))
     music.rest(music.beat(BeatFraction.Half))
 }
+let light2 = 0
+music.setTempo(199)
 basic.forever(function () {
-    第一段()
-    第二段()
-    第一段()
-    第三段()
-    第四段()
-    第五段()
-    第六段()
-    第七段()
-    第八段()
-    第四段()
+    light2 = input.lightLevel()
+    if (light2 > 130) {
+        basic.showString("2020")
+        basic.showIcon(IconNames.Heart)
+        basic.showString("Merry Christmas")
+    }
 })
