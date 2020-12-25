@@ -40,7 +40,7 @@ function rvm1218_2 () {
     music.playTone(392, music.beat(BeatFraction.Whole))
 }
 input.onSound(DetectedSound.Loud, function () {
-    if (light2 > 130) {
+    if (light2 > 120) {
         第一段()
         第二段()
         第一段()
@@ -277,9 +277,27 @@ let light2 = 0
 music.setTempo(199)
 basic.forever(function () {
     light2 = input.lightLevel()
-    if (light2 > 130) {
-        basic.showString("2020")
-        basic.showIcon(IconNames.Heart)
-        basic.showString("Merry Christmas")
+    if (light2 > 120) {
+        basic.showLeds(`
+            . # # # .
+            . . . # .
+            . # # . .
+            . . . # .
+            . # # # .
+            `)
+        basic.showLeds(`
+            . # # # .
+            . # . # .
+            . # . # .
+            . # . # .
+            . # # # .
+            `)
     }
+    basic.showLeds(`
+        . # # # .
+        . # . . .
+        . # # # .
+        . # . # .
+        . # # # .
+        `)
 })
